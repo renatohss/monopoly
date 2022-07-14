@@ -7,9 +7,19 @@ MAX_SIMS = 300
 MAX_ROUNDS = 1000
 
 
-def has_winner(players: list[Player]) -> bool:
-    if len(players) == 1:
-        players[0].win_game()
+def get_timeout_winner(players: list[Player]) -> Player:
+    wins = [player.cash for player in players]
+    winner = players[wins.index(max(wins))]
+    return winner
+
+
+def has_winner(board: Board, rounds: int) -> bool:
+    active_players = board.check_active_players()
+    if len(active_players) == 1:
+        active_players[0].win_game()
+        return True
+    if rounds > MAX_ROUNDS:
+        get_timeout_winner(players=board.get_players()).win_game()
         return True
     return False
 
@@ -26,7 +36,7 @@ def play_round(board: Board, max_rounds: int):
             else:
                 board_space.pay_rent(payer=player)
             player.check_status()
-        if has_winner(board.check_active_players()):
+        if has_winner(board=board, rounds=cur_round):
             break
     return {
         "total_rounds": cur_round,

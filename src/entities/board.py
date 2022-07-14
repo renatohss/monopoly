@@ -11,7 +11,7 @@ class BoardSpace:
     def __init__(self, index: int):
         self.index: int = index
         self.owner: Optional[Player] = None
-        self.value: int = randint(100, 500)
+        self.value: int = randint(100, 300)
         self.rent: int = math.floor(self.value * 0.25)
 
     def sell_space(self, player: Player):
