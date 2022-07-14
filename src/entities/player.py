@@ -3,15 +3,15 @@ from random import randint
 
 
 class Player(ABC):
-    def __init__(self, start_cash: float = 300):
-        self.cash = start_cash
+    def __init__(self):
+        self.cash = 0
         self.position = 0
         self.victories = 0
-        self.order = 0
+        self.is_active = True
 
-    @property
-    def is_active(self) -> bool:
-        return False if self.cash < 0 else True
+    def check_status(self):
+        if self.cash < 0:
+            self.is_active = False
 
     @property
     def name(self) -> str:
