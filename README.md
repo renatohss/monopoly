@@ -7,7 +7,7 @@ foram simplificadas. Numa partida desse jogo, os jogadores se alteram em rodadas
 aleatoriamente no começo da partida. Os jogadores sempre começam uma partida com saldo de 300 para
 cada um.
 Nesse jogo, o tabuleiro é composto por 20 propriedades em sequência. Cada propriedade tem um custo de
-venda, um valor de aluguel, um proprietário caso já estejam compradas, e seguem uma determinada ordem no
+venda (definido entre 100 e 400), um valor de aluguel (definido como 25% do valor de venda), um proprietário caso já estejam compradas, e seguem uma determinada ordem no
 tabuleiro. Não é possível construir hotéis e nenhuma outra melhoria sobre as propriedades do tabuleiro, por
 simplicidade do problema.
 No começo da sua vez, o jogador joga um dado equiprovável de 6 faces que determina quantas espaços no
