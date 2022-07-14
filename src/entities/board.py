@@ -54,6 +54,11 @@ class Board:
                 active_players.append(player)
         return active_players
 
+    def remove_player(self, player: Player):
+        for space in self.__board:
+            if space.owner == player:
+                space.owner = None
+
     def new_round(self):
         random.shuffle(self.__players)
         for player in self.__players:

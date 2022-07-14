@@ -36,6 +36,8 @@ def play_round(board: Board, max_rounds: int):
             else:
                 board_space.pay_rent(payer=player)
             player.check_status()
+            if not player.is_active:
+                board.remove_player(player=player)
         if has_winner(board=board, rounds=cur_round):
             break
     return {
